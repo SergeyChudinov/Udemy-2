@@ -36,39 +36,37 @@ const personalMovieDB = {
             console.log(personalMovieDB);
         }
     },
-    writeYourGenres: function() {
-        for (let i = 0; i < 3; i++) {
-            function genreFn() {
-                let genre = prompt(`Ваш любимый жанр под номером ${i + 1}?`);
-                if (genre === null|| genre === '') {
-                    return genreFn();
-                };
-                return genre;
-            }
-            this.genres[i] = genreFn();;
-        }
-        // this.genres.forEach(function(el, index) {
-        //     console.log(`Любимый жанр #${index + 1} это ${el}`)
-        // })
-        this.genres.forEach((el, index) => {
-            console.log(`Любимый жанр #${index + 1} это ${el}`)
-        })
-    },
     // writeYourGenres: function() {
-    //     for (let i = 0; i < 1; i++) {
+    //     for (let i = 0; i < 3; i++) {
     //         function genreFn() {
-    //             let genre = prompt(`Введите ваши любибые жанры через запятую?`);
+    //             let genre = prompt(`Ваш любимый жанр под номером ${i + 1}?`);
     //             if (genre === null|| genre === '') {
     //                 return genreFn();
     //             };
     //             return genre;
     //         }
-    //         this.genres = genreFn().split(',');
+    //         this.genres[i] = genreFn();;
     //     }
+    //     // this.genres.forEach(function(el, index) {
+    //     //     console.log(`Любимый жанр №${index + 1} это ${el}`)
+    //     // })
     //     this.genres.forEach((el, index) => {
     //         console.log(`Любимый жанр #${index + 1} это ${el}`)
     //     })
     // },
+    writeYourGenres: function() {
+        function genreFn() {
+            let genre = prompt(`Введите ваши любибые жанры через запятую?`);
+            if (genre === null|| genre === '') {
+                return genreFn();
+            };
+            return genre;
+        }
+        this.genres = genreFn().split(',');
+        this.genres.forEach((el, index) => {
+            console.log(`Любимый жанр №${index + 1} это ${el}`)
+        })
+    },
     toggleVisibleMyDb: function() {
         if (!this.privat) {
             this.privat = true;
