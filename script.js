@@ -29,7 +29,8 @@ const personalMovieDB = {
         if (a == null || b == null || a == ''|| b == ''|| a.length > 50) {
             return this.movieQuestion();
         };
-        return [a, b];
+        // return [a, b];
+        return {a: a, b: b};
     },
     showMyDB: function(hidden) {
         if (!hidden) {
@@ -80,7 +81,8 @@ function fn() {
     personalMovieDB.detectPersonaLevel();
     for (let i = 0; i < 2; i++) {
         var codes = personalMovieDB.movieQuestion();
-        personalMovieDB.movies[codes[0]] = codes[1];
+        // personalMovieDB.movies[codes[0]] = codes[1];
+        personalMovieDB.movies[codes.a] = codes.b;
     };
     personalMovieDB.showMyDB(personalMovieDB.privat);
     personalMovieDB.writeYourGenres();
@@ -88,53 +90,6 @@ function fn() {
     console.log(personalMovieDB);
 }
 
-// const a = prompt('Один из последних фильмов?'),
-//       b = prompt('На сколько оценете его?'),
-//       c = prompt('Один из последних фильмов?'),
-//       d = prompt('На сколько оценете его?');
-// personalMovieDB.movies[a] = b;
-// personalMovieDB.movies[c] = d;
-
-// for (let i = 0; i < 2; i++) {
-//     const a = prompt('Один из последних фильмов?'),
-//           b = prompt('На сколько оценете его?');
-//     if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-//         personalMovieDB.movies[a] = b;
-//     } else {
-//         i--;
-//     }  
-// }
-// let i = 0;
-// while (i < 2) {
-//     const a = prompt('Один из последних фильмов?'),
-//           b = prompt('На сколько оценете его?');
-//     if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-//         personalMovieDB.movies[a] = b;
-//         i++;
-//     }     
-// }
-// do {
-//     const a = prompt('Один из последних фильмов?'),
-//           b = prompt('На сколько оценете его?');
-//     if (a != null && b != null && a != '' && b != '' && a.length < 50) {
-//         personalMovieDB.movies[a] = b;
-//         i++;
-//     }  
-// } while (i < 2);
-
-// function movieQuestion() {
-//     let a = prompt('Один из последних фильмов?');
-//     let b = prompt('На сколько оценете его?');
-//     if (a == null || b == null || a == ''|| b == ''|| a.length > 50) {
-//         movieQuestion();
-//     }
-//     return {a: a, b: b};
-// }
-// for (let i = 0; i < 2; i++) {
-//     var codes = movieQuestion();
-//     personalMovieDB.movies[codes.a] = codes.b;
-// }
-// console.log(personalMovieDB);
 
 
 
